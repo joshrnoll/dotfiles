@@ -29,7 +29,13 @@ unset rc
 ##-----------------------------------------------------
 
 # Masochism in the name of upskilling
-EDITOR=/usr/sbin/vim
+if command -v nvim &> /dev/null; then
+    export EDITOR='nvim'
+    export VISUAL='nvim'
+else
+    export EDITOR='vi'
+    export VISUAL='vi'
+fi
 
 # SSH agent initialization
 
