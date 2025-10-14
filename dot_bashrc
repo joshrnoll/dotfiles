@@ -66,6 +66,13 @@ alias hugo-date="date '+%Y-%m-%dT%H:%M:%S%:z'"
 ## Containerized apps
 alias obsidian-export="docker run --rm -v /var/home/josh/:/var/home/josh/ obsidian-export:latest"
 
+## Startship prompt
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init bash)"
+else
+  echo "Install starship to make the bash prompt look more awesome -- https://starship.rs/installing/"
+fi
+
 ########################
 # MOTIVATION FROM YODA #
 ########################
@@ -89,5 +96,3 @@ cat <<"EOF"
 
 "Do... or do not. There is no try."
 EOF
-
-eval "$(starship init bash)"
