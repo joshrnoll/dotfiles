@@ -2,13 +2,12 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+  . /etc/bashrc
 fi
 
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
-then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+  PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
 
@@ -17,11 +16,11 @@ export PATH
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*; do
-		if [ -f "$rc" ]; then
-			. "$rc"
-		fi
-	done
+  for rc in ~/.bashrc.d/*; do
+    if [ -f "$rc" ]; then
+      . "$rc"
+    fi
+  done
 fi
 
 unset rc
@@ -29,12 +28,12 @@ unset rc
 ##-----------------------------------------------------
 
 # Masochism in the name of upskilling
-if command -v nvim &> /dev/null; then
-    export EDITOR='nvim'
-    export VISUAL='nvim'
+if command -v nvim &>/dev/null; then
+  export EDITOR='nvim'
+  export VISUAL='nvim'
 else
-    export EDITOR='vi'
-    export VISUAL='vi'
+  export EDITOR='vi'
+  export VISUAL='vi'
 fi
 
 # SSH agent initialization
@@ -54,7 +53,7 @@ export OBSV=/home/josh/Documents/Obsidian/josh-obsidian-vault
 # Aliases
 alias in="code $OBSV/1-inbox/infile.md"
 alias dn="code $OBSV/1-inbox/$DATE.md"
-alias blog="code /home/josh/gitea/joshrnoll/" 
+alias blog="code /home/josh/gitea/joshrnoll/"
 alias k="kubectl"
 alias kc="kubectl config current-context"
 alias kcs="kubectl config use-context"
@@ -71,7 +70,7 @@ alias obsidian-export="docker run --rm -v /var/home/josh/:/var/home/josh/ obsidi
 # MOTIVATION FROM YODA #
 ########################
 
-cat << "EOF"
+cat <<"EOF"
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⡰⠊⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀
 ⠀⠀⠀⠀⠀⠀⠀⠀⡰⠈⠀⠀⠠⠂⠂⠀⠀⢀⣀⠀⠀⠀⢀⣀⣴⢟⠛⠉
@@ -90,3 +89,5 @@ cat << "EOF"
 
 "Do... or do not. There is no try."
 EOF
+
+eval "$(starship init bash)"
