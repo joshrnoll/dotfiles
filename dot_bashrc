@@ -73,7 +73,15 @@ alias hugo-date="date '+%Y-%m-%dT%H:%M:%S%:z'"
 if command -v starship >/dev/null 2>&1; then
   eval "$(starship init bash)"
 else
-  echo "Install starship to make the bash prompt look more awesome -- https://starship.rs/installing/"
+  echo "Starship not installed. Attempting to install with homebrew..."
+  brew install starship && eval "$(starship init bash)"
+fi
+
+if command -v fastfetch >/dev/null 2>&1; then
+  fastfetch
+else
+  echo "Fastfetch not installed. Attempting to install with homebrew..."
+  brew install fastfetch && fastfetch
 fi
 
 ########################
