@@ -41,7 +41,13 @@ fi
 # ssh-agent
 # ssh-add ~/.ssh/id_rsa
 
-# Homebrew stuff
+# Install Homebrew if not installed
+if [ ! -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
+  echo "Homebrew not installed. Running installation script now..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+# Add homebrew to path
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Environment variables
@@ -62,9 +68,6 @@ alias gc="git commit -m"
 alias gpom="git push origin main"
 alias clean-infile="python /home/josh/Documents/Obsidian/josh-obsidian-vault/3-areas/Scripts/clean-infile.py"
 alias hugo-date="date '+%Y-%m-%dT%H:%M:%S%:z'"
-
-## Containerized apps
-alias obsidian-export="docker run --rm -v /var/home/josh/:/var/home/josh/ obsidian-export:latest"
 
 ## Startship prompt
 if command -v starship >/dev/null 2>&1; then
