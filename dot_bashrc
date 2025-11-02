@@ -60,14 +60,25 @@ export OBSV=/home/josh/Documents/Obsidian/josh-obsidian-vault
 alias in="code $OBSV/1-inbox/infile.md"
 alias dn="code $OBSV/1-inbox/$DATE.md"
 alias blog="code /home/josh/gitea/joshrnoll/"
-alias k="kubectl"
-alias kc="kubectl config current-context"
-alias kcs="kubectl config use-context"
 alias ga="git add"
 alias gc="git commit -m"
 alias gpom="git push origin main"
 alias clean-infile="python /home/josh/Documents/Obsidian/josh-obsidian-vault/3-areas/Scripts/clean-infile.py"
 alias hugo-date="date '+%Y-%m-%dT%H:%M:%S%:z'"
+
+# k8s aliases
+alias k="kubectl"
+alias kc="kubectl config current-context"
+alias kcs="kubectl config use-context"
+alias k8s-deployment="kubectl create deployment --image=busybox replace-me --dry-run=client -o yaml"
+alias k8s-statefulset="kubectl create statefulset --image=busybox replace-me --dry-run=client -o yaml"
+alias k8s-namespace="kubectl create namespace my-namespace --dry-run=client -o yaml"
+alias k8s-configmap="kubectl create configmap my-configmap --dry-run=client -o yaml"
+alias k8s-secret="kubectl create secret generic my-secret --dry-run=client -o yaml"
+alias k8s-svc-clusterip="kubectl create service clusterip my-service --tcp=80:8080 --dry-run=client -o yaml"
+alias k8s-svc-nodeport="kubectl create service nodeport my-service --tcp=80:8080 --dry-run=client -o yaml"
+alias k8s-svc-loadbalancer="kubectl create service loadbalancer my-service --tcp=80:8080 --dry-run=client -o yaml"
+
 
 ## Startship prompt
 if command -v starship >/dev/null 2>&1; then
@@ -77,33 +88,41 @@ else
   brew install starship && eval "$(starship init bash)"
 fi
 
-if command -v fastfetch >/dev/null 2>&1; then
-  fastfetch
-else
-  echo "Fastfetch not installed. Attempting to install with homebrew..."
-  brew install fastfetch && fastfetch
-fi
+# if command -v fastfetch >/dev/null 2>&1; then
+#   fastfetch
+# else
+#   echo "Fastfetch not installed. Attempting to install with homebrew..."
+#   brew install fastfetch && fastfetch
+# fi
 
 ########################
 # MOTIVATION FROM YODA #
 ########################
 
 cat <<"EOF"
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⡰⠊⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀
-⠀⠀⠀⠀⠀⠀⠀⠀⡰⠈⠀⠀⠠⠂⠂⠀⠀⢀⣀⠀⠀⠀⢀⣀⣴⢟⠛⠉
-⠀⠀⠀⠀⠀⠀⠀⣾⣧⡠⣂⣤⣬⣲⣶⢷⣾⣛⠙⠳⠀⣤⣿⡿⠃⠂⠀⠀
-⣀⣀⣀⣀⣀⣀⡀⠛⢿⣷⠟⡋⣩⠻⣗⠀⠻⣝⢻⡌⠀⣍⡥⠊⠀⠀⠀⠀
-⠈⠑⢝⡻⠿⣿⣿⣿⣾⡟⠘⢋⡉⠞⠒⠒⠋⠈⢲⣿⣿⡛⠁⠀⠀⠀⠀⠀
-⠀⠀⠀⠈⠑⠢⠍⠙⣿⣿⣄⡀⣠⣎⡀⠤⢤⣢⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠙⠙⣿⣿⣿⣿⣿⣿⣛⣿⣿⣿⡅⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⢀⣀⣴⣿⣿⣿⣿⣿⣿⣿⣿⢿⣫⢤⢙⢦⠰⣄⡀⠀⠀
-⠀⠀⠀⠀⠀⢠⣼⣿⣿⣿⣳⢻⣿⣿⣿⣿⣷⠾⠿⠋⠖⠄⠀⠙⠎⢷⡀⠀
-⠀⠀⠀⠀⢠⣿⣿⣿⣿⣿⣯⡁⢿⣿⣿⣶⣶⣶⠶⠞⢉⣇⡀⠀⣀⣼⣷⠀
-⠀⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣧⡾⢉⡛⠿⠢⢌⢀⣾⣿⣿⣿⣿⣿⣿⠀
-⠀⠀⠀⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡦⡦⢮⠀⢰⡙⡛⠿⣿⣿⣿⠂
-⠀⠀⠀⠸⣿⠻⣿⣿⣿⣿⣿⣿⣿⣿⠯⢥⠾⠛⠢⣴⡿⡻⣞⢦⡀⠉⠉⠀
-⠀⠀⠀⠀⠀⠁⠈⠉⠉⠉⠉⠉⠁⠀⠀⠀⠉⠉⠉⠀⠀⠈⠈⠈⠉⠁⠀⠀
 
-"Do... or do not. There is no try."
+░▀█▀░█░█░▀█▀░█▀▀░░░▀█▀░█▀▀░░░▀█▀░█░█░█▀▀░░░█░█░█▀█░█░█
+░░█░░█▀█░░█░░▀▀█░░░░█░░▀▀█░░░░█░░█▀█░█▀▀░░░█▄█░█▀█░░█░
+░░▀░░▀░▀░▀▀▀░▀▀▀░░░▀▀▀░▀▀▀░░░░▀░░▀░▀░▀▀▀░░░▀░▀░▀░▀░░▀░
+
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣤⣤⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⡠⠔⠋⠁⠀⠀⣿⡇⢸⣿⠀⠀⠈⠙⠢⢄⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⡠⠊⠀⠀⠀⠀⠀⠀⣿⡇⢸⣿⠀⠀⠀⠀⠀⠀⠑⢄⠀⠀⠀⠀
+            ⠀⠀⠀⡴⠁⠀⠀⠀⠀⠀⠀⠀⣿⡇⢸⣿⠀⠀⠀⠀⠀⠀⠀⠈⢆⠀⠀⠀
+	    ⠀⠀⢰⠁⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠈⡆⠀⠀
+            ⠀⢀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀
+            ⡔⠚⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠓⢢
+            ⡇⢀⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣇⣸⣿⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⡀⢸
+            ⠇⠘⠻⢿⣿⣷⣶⣤⣤⣄⣀⣀⣈⡛⢛⣁⣀⣀⣠⣤⣤⣶⣾⣿⡿⠟⠃⢸
+	    ⡷⣤⣀⠀⠈⠉⠙⠛⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠛⠋⠉⠁⠀⣀⣤⢾
+            ⢳⠈⠻⣿⣶⣄⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⣠⣶⣿⠟⠁⡞
+            ⢸⠀⠀⠈⠻⣿⣷⣄⠀⠀⠀⢿⣿⣿⣿⣿⡟⠀⠀⠀⣠⣿⣿⠟⠁⠀⠀⡇
+            ⢸⠀⠀⠀⡈⠈⠻⣿⣆⠀⠀⢸⣿⣿⣿⣿⡇⠀⠀⣰⣿⠟⠁⢃⠀⠀⠀⡇
+            ⢸⠀⠀⠠⠁⠀⠀⠘⢿⡄⠀⢸⣿⣿⣿⣿⡇⠀⢰⡿⠃⠀⠀⠈⠄⠀⠀⡇
+	    ⢸⠀⢀⠁⠀⠀⠀⠀⠈⣿⠀⢸⣿⣿⣿⣿⡇⠀⣿⠁⠀⠀⠀⠀⠈⡀⠀⡇
+            ⠀⠑⠛⠢⣄⠀⠀⠀⠀⠘⡇⢸⣿⣿⣿⣿⡇⢸⠃⠀⠀⠀⠀⣠⠔⠛⠊⠀
+            ⠀⠀⠀⠀⠀⠑⠢⣀⠀⠀⢷⢸⣿⣿⣿⣿⠇⡞⠀⠀⣀⠔⠋⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠑⠢⣸⠀⣿⣿⣿⣿⠀⣇⠔⠊⠀⠀⠀⠀⠀⠀⠀⠀
+            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠒⠛⠛⠛⠛⠚⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+
 EOF
