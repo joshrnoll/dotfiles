@@ -1,0 +1,84 @@
+* {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+}
+
+window {
+    margin: 0px;
+    border: 2px solid #7aa2f7;
+    background-color: #1a1b26;
+    border-radius: 8px;
+}
+
+#input {
+    margin: 8px;
+    padding: 8px 12px;
+    border: none;
+    background-color: #24283b;
+    color: #c0caf5;
+    border-radius: 4px;
+    outline: none;
+}
+
+#input:focus {
+    border: 1px solid #7aa2f7;
+}
+
+#inner-box {
+    margin: 8px;
+    border: none;
+    background-color: #1a1b26;
+}
+
+#outer-box {
+    margin: 0px;
+    border: none;
+    background-color: #1a1b26;
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
+}
+
+#text {
+    margin: 5px;
+    border: none;
+    color: #c0caf5;
+}
+
+#entry {
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+#entry:selected {
+    background-color: #24283b;
+    border-left: 3px solid #7aa2f7;
+}
+
+#entry:hover {
+    background-color: #292e42;
+}
+
+#text:selected {
+    color: #7aa2f7;
+}
+
+/* Scrollbar styling */
+scrollbar {
+    background-color: #1a1b26;
+    border: none;
+}
+
+scrollbar slider {
+    background-color: #414868;
+    border: none;
+    border-radius: 4px;
+}
+
+scrollbar slider:hover {
+    background-color: #565f89;
+}
