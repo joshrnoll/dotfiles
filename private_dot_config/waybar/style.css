@@ -19,19 +19,21 @@ window#waybar {
     background: @bg;
     opacity: 0.85;
     color: @fg;
-    border-bottom: 2px solid @blue;
+    /* border-bottom: 2px solid @blue; */
 }
 
 /* Each module container */
-#workspaces, #clock, #network, #wireplumber, #cpu, #memory, #temperature, #battery, #tray, #backlight, #bluetooth, #custom-power {
-    padding: 6px;
+#clock, #network, #wireplumber, #cpu, #memory, #temperature, #battery, #tray, #backlight, #bluetooth, #custom-power, #keyboard-state {
+    padding-right: 12px;
+    padding-left: 8px;
     margin: 6px;
-    border-radius: 15px;
+    border: 2px solid @fg;
+    border-radius: 30px;
 }
 
 /* --- Workspaces --- */
 #workspaces button {
-    padding: 0 8px;
+    padding: 0 12px;
     color: @fg;
     background: transparent;
     border-radius: 12px;
@@ -103,6 +105,10 @@ window#waybar {
 #tray {
     padding: 4px 6px;
 }
+
+/* #keyboard-state label, #keyboard-state label.locked { */
+/*   margin-right: 12px; */
+/* } */
 
 /* --- Custom modules --- */
 #custom-powermenu {

@@ -35,7 +35,7 @@
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
-        "format": "{name} {icon}",
+        "format": "{name} {icon} ",
         "format-icons": {
             "locked": "",
             "unlocked": ""
@@ -89,7 +89,7 @@
         "on-click": "ghostty -e bluetui",
     },
     "custom/power": {
-      "format": "⏻ ",
+      "format": "⏻",
       "tooltip": false,
       "menu": "on-click",
       "menu-file": "~/.config/waybar/power_menu.xml",
