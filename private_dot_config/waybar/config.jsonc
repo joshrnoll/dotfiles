@@ -13,12 +13,13 @@
         "clock"
     ],
     "modules-right": [
+        "custom/notifications",
         "wireplumber",
         "bluetooth",
         "network",
+        "keyboard-state",
         "cpu",
         "memory",
-        "keyboard-state",
         "custom/power",
     ],
 
@@ -48,10 +49,12 @@
     },
     "cpu": {
         "format": "{usage}% ",
-        "tooltip": false
+        "tooltip-format": "CPU usage",
+        "on-click": "htop",
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% ",
+        "on-click": "htop",
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -60,7 +63,8 @@
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "ghostty -e nmtui"
     },
     "wireplumber": {
         // "scroll-step": 1, // %, can be a float
@@ -90,7 +94,7 @@
     },
     "custom/power": {
       "format": "⏻",
-      "tooltip": false,
+      "tooltip-format": "System power options",
       "menu": "on-click",
       "menu-file": "~/.config/waybar/power_menu.xml",
       "menu-actions": {
@@ -99,5 +103,10 @@
         "suspend": "systemctl suspend",
         "hibernate": "systemctl hibernate"
       }
+    },
+    "custom/notifications": {
+      "format": "",
+      "tooltip-format": "View notification panel",
+      "on-click": "swaync-client -t"
     },
 }

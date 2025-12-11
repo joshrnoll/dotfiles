@@ -1,0 +1,29 @@
+constants:
+  backup_dir: "/home/josh"
+  borg_repo: "/home/josh/SynologyDrive/2-Areas/Backups/myarchie-borg-repo"
+
+source_directories:
+    - "{backup_dir}"
+
+repositories:
+    - path: "{borg_repo}" 
+
+exclude_caches: true
+exclude_patterns:
+    - "{backup_dir}/homeshare"
+    - "{backup_dir}/SynologyDrive"
+    - "{backup_dir}/.config"
+    - "{backup_dir}/.cache"
+    - "{backup_dir}/**/.cache"
+    - "{backup_dir}/**/.cache/*"
+    - "{backup_dir}/.local/share/Trash"
+    - "{backup_dir}/**/tmp"
+    - "{backup_dir}/**/*.tmp"
+
+# Keep all archives within this time interval. See "skip_actions" for
+# disabling pruning altogether.
+keep_within: 3H
+keep_daily: 7
+keep_weekly: 4
+keep_monthly: 6
+keep_yearly: 1

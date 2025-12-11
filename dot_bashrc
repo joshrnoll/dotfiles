@@ -65,6 +65,7 @@ alias gc="git commit -m"
 alias gpom="git push origin main"
 alias clean-infile="python /home/josh/Documents/Obsidian/josh-obsidian-vault/3-areas/Scripts/clean-infile.py"
 alias hugo-date="date '+%Y-%m-%dT%H:%M:%S%:z'"
+alias zettel="nvim ~/Documents/Obsidian/zettelkasten/README.md"
 
 # k8s aliases
 alias k="kubectl"

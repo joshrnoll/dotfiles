@@ -1,0 +1,403 @@
+/* Tokyo Night Theme for SwayNC */
+/* Save as ~/.config/swaync/style.css */
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Tokyo Night Color Palette */
+@define-color bg #1a1b26;
+@define-color bg-dark #16161e;
+@define-color bg-highlight #292e42;
+@define-color terminal-black #414868;
+@define-color fg #c0caf5;
+@define-color fg-dark #a9b1d6;
+@define-color fg-gutter #3b4261;
+@define-color dark3 #545c7e;
+@define-color comment #565f89;
+@define-color dark5 #737aa2;
+@define-color blue0 #3d59a1;
+@define-color blue #7aa2f7;
+@define-color cyan #7dcfff;
+@define-color blue1 #2ac3de;
+@define-color blue2 #0db9d7;
+@define-color blue5 #89ddff;
+@define-color blue6 #b4f9f8;
+@define-color blue7 #394b70;
+@define-color magenta #bb9af7;
+@define-color magenta2 #ff007c;
+@define-color purple #9d7cd8;
+@define-color orange #ff9e64;
+@define-color yellow #e0af68;
+@define-color green #9ece6a;
+@define-color green1 #73daca;
+@define-color green2 #41a6b5;
+@define-color teal #1abc9c;
+@define-color red #f7768e;
+@define-color red1 #db4b4b;
+
+.notification-row {
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+  background: @bg-highlight;
+}
+
+.notification {
+  background: transparent;
+  padding: 0;
+  margin: 8px;
+  border-radius: 8px;
+}
+
+.notification-content {
+  background: @bg;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid @fg-gutter;
+  margin: 0;
+}
+
+.notification-default-action {
+  margin: 0;
+  padding: 0;
+  border-radius: 8px;
+}
+
+.close-button {
+  background: @red;
+  color: @bg;
+  text-shadow: none;
+  padding: 0;
+  border-radius: 50%;
+  margin-top: 8px;
+  margin-right: 8px;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.close-button:hover {
+  background: @red1;
+  transition: all 0.15s ease-in-out;
+}
+
+.notification-action {
+  background: @blue7;
+  color: @blue;
+  border: 1px solid @blue0;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  padding: 8px;
+  margin: 0;
+}
+
+.notification-action:hover {
+  background: @blue0;
+  color: @blue5;
+}
+
+.notification-action:active {
+  background: @blue;
+  color: @bg;
+}
+
+.inline-reply {
+  margin-top: 8px;
+}
+
+.inline-reply-entry {
+  background: @bg-dark;
+  color: @fg;
+  caret-color: @blue;
+  border: 1px solid @fg-gutter;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.inline-reply-button {
+  background: @blue;
+  color: @bg;
+  border: 1px solid @blue0;
+  border-radius: 8px;
+  margin-left: 4px;
+  padding: 8px;
+}
+
+.inline-reply-button:hover {
+  background: @blue5;
+}
+
+.inline-reply-button:active {
+  background: @cyan;
+}
+
+.body-image {
+  margin-top: 8px;
+  background-color: @bg-dark;
+  border-radius: 8px;
+}
+
+.summary {
+  font-size: 16px;
+  font-weight: 700;
+  background: transparent;
+  color: @blue;
+  text-shadow: none;
+}
+
+.time {
+  font-size: 12px;
+  font-weight: 400;
+  background: transparent;
+  color: @dark5;
+  text-shadow: none;
+  margin-right: 8px;
+}
+
+.body {
+  font-size: 14px;
+  font-weight: 400;
+  background: transparent;
+  color: @fg-dark;
+  text-shadow: none;
+}
+
+.control-center {
+  background: @bg;
+  border: 1px solid @fg-gutter;
+  border-radius: 12px;
+  margin: 12px;
+  padding: 12px;
+}
+
+.control-center-list {
+  background: transparent;
+}
+
+.control-center-list-placeholder {
+  opacity: 0.5;
+}
+
+.floating-notifications {
+  background: transparent;
+}
+
+.blank-window {
+  background: alpha(@bg, 0.1);
+}
+
+.widget-title {
+  color: @blue;
+  background: @bg-dark;
+  padding: 8px 12px;
+  margin: 12px 12px 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px 8px 0 0;
+}
+
+.widget-title>button {
+  font-size: 16px;
+  color: @fg;
+  text-shadow: none;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 4px 8px;
+  margin: 0 4px;
+}
+
+.widget-title>button:hover {
+  background: @bg-highlight;
+  color: @blue;
+}
+
+.widget-title>button:active {
+  background: @blue;
+  color: @bg;
+}
+
+.widget-dnd {
+  background: @bg-dark;
+  padding: 8px 12px;
+  margin: 0 12px 12px 12px;
+  border-radius: 0 0 8px 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: @fg;
+}
+
+.widget-dnd>switch {
+  background: @terminal-black;
+  border-radius: 12px;
+  border: 1px solid @fg-gutter;
+}
+
+.widget-dnd>switch:checked {
+  background: @green;
+  border: 1px solid @green2;
+}
+
+.widget-dnd>switch slider {
+  background: @fg-gutter;
+  border-radius: 50%;
+  border: 1px solid @comment;
+}
+
+.widget-dnd>switch:checked slider {
+  background: @bg;
+  border: 1px solid @green;
+}
+
+.widget-label {
+  margin: 12px 12px 8px 12px;
+}
+
+.widget-label>label {
+  font-size: 16px;
+  font-weight: 700;
+  color: @blue;
+}
+
+.widget-mpris {
+  background: @bg-dark;
+  padding: 12px;
+  margin: 12px;
+  border-radius: 8px;
+  border: 1px solid @fg-gutter;
+}
+
+.widget-mpris-player {
+  padding: 8px;
+  margin: 8px;
+  background: @bg;
+  border-radius: 8px;
+}
+
+.widget-mpris-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: @blue;
+}
+
+.widget-mpris-subtitle {
+  font-size: 12px;
+  color: @fg-dark;
+}
+
+.widget-buttons-grid {
+  background: @bg-dark;
+  padding: 12px;
+  margin: 12px;
+  border-radius: 8px;
+  border: 1px solid @fg-gutter;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button {
+  background: @bg;
+  border: 1px solid @fg-gutter;
+  border-radius: 8px;
+  color: @fg;
+  margin: 4px;
+  padding: 12px;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+  background: @bg-highlight;
+  color: @blue;
+  border-color: @blue0;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:active {
+  background: @blue;
+  color: @bg;
+}
+
+.widget-menubar>box>.menu-button-bar>button {
+  border: none;
+  background: transparent;
+}
+
+.topbar-buttons>button {
+  border: none;
+  background: transparent;
+}
+
+.widget-volume {
+  background: @bg-dark;
+  padding: 12px;
+  margin: 12px;
+  border-radius: 8px;
+  border: 1px solid @fg-gutter;
+  color: @fg;
+}
+
+.widget-backlight {
+  background: @bg-dark;
+  padding: 12px;
+  margin: 12px;
+  border-radius: 8px;
+  border: 1px solid @fg-gutter;
+  color: @fg;
+}
+
+.widget-inhibitors {
+  background: @bg-dark;
+  padding: 12px;
+  margin: 12px;
+  border-radius: 8px;
+  border: 1px solid @fg-gutter;
+}
+
+.widget-inhibitors>button {
+  background: @bg;
+  border: 1px solid @fg-gutter;
+  border-radius: 8px;
+  color: @fg;
+  padding: 8px;
+  margin: 4px;
+}
+
+.widget-inhibitors>button:hover {
+  background: @bg-highlight;
+  color: @red;
+  border-color: @red1;
+}
+
+trough {
+  background: @terminal-black;
+  border-radius: 12px;
+  border: 1px solid @fg-gutter;
+}
+
+highlight {
+  background: @blue;
+  border-radius: 12px;
+}
+
+scale {
+  margin: 8px 0;
+}
+
+slider {
+  background: @bg;
+  border: 1px solid @blue0;
+  border-radius: 50%;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+progressbar {
+  background: transparent;
+}
+
+progress {
+  background: @green;
+  border-radius: 12px;
+}
