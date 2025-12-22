@@ -49,6 +49,7 @@ if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
   fi
 fi
 
+
 # Add homebrew to path
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
@@ -69,6 +70,7 @@ alias clean-infile="python /home/josh/Documents/Obsidian/josh-obsidian-vault/3-a
 alias hugo-date="date '+%Y-%m-%dT%H:%M:%S%:z'"
 alias zettel="nvim ~/Documents/Obsidian/zettelkasten/README.md"
 alias infile="nvim ~/Documents/Obsidian/gtd/infile.md"
+alias devpod="devpod-cli"
 
 # k8s aliases
 alias k="kubectl"
@@ -90,10 +92,26 @@ alias k8s-svc-loadbalancer="kubectl create service loadbalancer my-service --tcp
 #   brew install fastfetch && fastfetch
 # fi
 
-########################
-# MOTIVATION FROM YODA #
-########################
+# Goose terminal integration https://block.github.io/goose/docs/guides/terminal-integration/
+if command -v goose >/dev/null 2>&1; then
+  # eval "$(goose term init bash)"
+  export GOOSE_SESSION_ID="20251218_23"
+  alias @goose='/home/josh/.local/bin/goose term run'
+  alias @g='/home/josh/.local/bin/goose term run'
 
+  goose_preexec() {
+    [[ "$1" =~ ^goose\ term ]] && return
+    [[ "$1" =~ ^(@goose|@g)($|[[:space:]]) ]] && return
+    ('/home/josh/.local/bin/goose' term log "$1" &) 2>/dev/null
+  }
+
+  if [[ -z "$goose_preexec_installed" ]]; then
+    goose_preexec_installed=1
+    trap 'goose_preexec "$BASH_COMMAND"' DEBUG
+  fi
+fi
+
+# Motivation from mando
 cat <<"EOF"
 
 ░▀█▀░█░█░▀█▀░█▀▀░░░▀█▀░█▀▀░░░▀█▀░█░█░█▀▀░░░█░█░█▀█░█░█
