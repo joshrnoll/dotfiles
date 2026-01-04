@@ -70,7 +70,7 @@ alias clean-infile="python /home/josh/Documents/Obsidian/josh-obsidian-vault/3-a
 alias hugo-date="date '+%Y-%m-%dT%H:%M:%S%:z'"
 alias zettel="nvim ~/Documents/Obsidian/zettelkasten/README.md"
 alias infile="nvim ~/Documents/Obsidian/gtd/infile.md"
-alias devpod="devpod-cli"
+# alias devpod="devpod-cli"
 
 # k8s aliases
 alias k="kubectl"
