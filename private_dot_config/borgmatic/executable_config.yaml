@@ -1,6 +1,6 @@
 constants:
   backup_dir: "/home/josh"
-  borg_repo: "/home/josh/SynologyDrive/2-Areas/Backups/myarchie-borg-repo"
+  borg_repo: "/home/josh/homeshare/myarchy-borg-repo"
 
 source_directories:
     - "{backup_dir}"
@@ -8,11 +8,24 @@ source_directories:
 repositories:
     - path: "{borg_repo}" 
 
+checks:
+  - name: data
+    frequency: 1 week
+
+ntfy:
+  topic: desktop-backups
+  server: https://ntfy.mink-pirate.ts.net
+  fail:
+    title: Desktop backups failed
+    message: Check ntfy server or desktop's tailscale connection
+    tags: borgmatic, skull
+  states:
+    - fail
+
 exclude_caches: true
 exclude_patterns:
     - "{backup_dir}/homeshare"
     - "{backup_dir}/SynologyDrive"
-    - "{backup_dir}/.config"
     - "{backup_dir}/.cache"
     - "{backup_dir}/**/.cache"
     - "{backup_dir}/**/.cache/*"
