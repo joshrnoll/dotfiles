@@ -60,6 +60,7 @@ export TALOSCONFIG=./talosconfig
 
 # Aliases
 alias in="nvim $HOME/Documents/Obsidian/gtd/infile.md"
+alias para="nvim $HOME/Documents/Obsidian/para/1-Inbox/$(date +'%Y-%m-%dT%H:%M:%S').md"
 alias blog="nvim $HOME/gitea/joshrnoll/"
 alias clean-infile="python /home/josh/Documents/Obsidian/josh-obsidian-vault/3-areas/Scripts/clean-infile.py"
 alias hugo-date="date '+%Y-%m-%dT%H:%M:%S%:z'"
