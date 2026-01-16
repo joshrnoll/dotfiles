@@ -57,15 +57,15 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 PATH=$PATH:~/.scripts
 export DATE=$(date +"%Y-%m-%d")
 export TALOSCONFIG=./talosconfig
+export CHANGELOG="$HOME/Documents/Obsidian/para/3-areas/Linux/Arch Linux Changelog.md"
 
 # Aliases
+alias changelog='echo -e "\n## $(date +'%Y-%m-%dT%H:%M:%S')" >> "$CHANGELOG" && nvim "$CHANGELOG"'
 alias in="nvim $HOME/Documents/Obsidian/gtd/infile.md"
 alias para="nvim $HOME/Documents/Obsidian/para/1-Inbox/$(date +'%Y-%m-%dT%H:%M:%S').md"
 alias blog="nvim $HOME/gitea/joshrnoll/"
 alias clean-infile="python /home/josh/Documents/Obsidian/josh-obsidian-vault/3-areas/Scripts/clean-infile.py"
 alias hugo-date="date '+%Y-%m-%dT%H:%M:%S%:z'"
-
-# k8s aliases
 alias k="kubectl"
 alias kc="kubectl config current-context"
 alias kcs="kubectl config use-context"
