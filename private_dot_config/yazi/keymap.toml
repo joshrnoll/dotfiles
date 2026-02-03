@@ -1,0 +1,6 @@
+[manager]
+
+prepend_keymap = [
+    # Enter key should navigate into directories, not open them
+    { on = "<Enter>", run = "plugin --sync smart-enter", desc = "Enter directory or open file" },
+]

@@ -70,12 +70,15 @@ alias k="kubectl"
 alias kc="kubectl config current-context"
 alias kcs="kubectl config use-context"
 
-# if command -v fastfetch >/dev/null 2>&1; then
-#   fastfetch
-# else
-#   echo "Fastfetch not installed. Attempting to install with homebrew..."
-#   brew install fastfetch && fastfetch
-# fi
+if command -v yazi >/dev/null 2>&1; then
+    function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    command yazi "$@" --cwd-file="$tmp"
+    IFS= read -r -d '' cwd < "$tmp"
+    [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+    rm -f -- "$tmp"
+  }
+fi
 
 # Goose terminal integration https://block.github.io/goose/docs/guides/terminal-integration/
 if command -v goose >/dev/null 2>&1; then
