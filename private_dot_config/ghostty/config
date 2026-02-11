@@ -52,7 +52,7 @@
 theme = TokyoNight Night
 
 # Font options
-font-family = AdwaitaMono
+font-family = JetBrains Mono Semibold
 font-size = 14
 
 # Transparency
