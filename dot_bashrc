@@ -70,6 +70,10 @@ alias k="kubectl"
 alias kc="kubectl config current-context"
 alias kcs="kubectl config use-context"
 
+function nvimssh(){
+  nvim oil-ssh://$1
+}
+
 if command -v yazi >/dev/null 2>&1; then
     function y() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
