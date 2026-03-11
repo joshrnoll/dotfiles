@@ -55,10 +55,7 @@ theme = TokyoNight Night
 font-family = JetBrains Mono Semibold
 font-size = 14
 
-# Transparency
-# background-opacity = 0.85
-
-# SSH options (prevents errors during SSH session)
+# SSH options
 shell-integration-features = ssh-terminfo
 shell-integration-features = ssh-env
 
