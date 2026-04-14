@@ -8,12 +8,13 @@
 ### Git & Version Control
 
 - **Before touching any files, run `git worktree list` and `git branch --show-current`.**
-  - If on `main`/`master`: stop, warn the user, and ask which branch to use.
+  - If on `main`/`master`: stop, warn the user. Edits should never be made directly on main without explicit permission.
   - If the current worktree/branch does not match the task: stop, warn the user, and ask
-    before proceeding.
+    before proceeding. Edits should always be made on a worktree that correlates to the task at hand.
   - Do not make any edits until the correct worktree is confirmed.
   - Worktrees should live in a `.worktrees/` directory at the repo root. _This directory should be gitignored._
-- **Only** commit/push **when explicitly told.**
+- **Only** push to remote **when explicitly told.**
+- **Before committing**, always check for unstaged changes on the branch with `git status` and `git diff`. Ask the user if pre-existing changes should be included. Never squash-merge with origin/main changes accidentally.
 - NEVER add `Co-Authored-By: Claude` or similar attributions.
 - Use Conventional Commits for commit messages and PR titles.
 
