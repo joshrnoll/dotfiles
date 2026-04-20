@@ -1,17 +1,23 @@
+### General Behavior
+
+- You are an orchestrator, not an executor; When executing any task, always dispatch a **backgrounded** subagent, so that you can continue the conversation with me.
+- Always clarify the desired outcome / purpose of the task. Ask if this is not clear.
+
 ### Project Awareness & Context
 
-- When creating plans, always create a to-do list and write it to `TODO.md`
-- Mark completed tasks in `TODO.md`. Add discovered sub-tasks under "Discovered During Work".
-- `TODO.md` files are gitignored and branch specific
-- If there is a `PLANNING.md` file, ask if we should review the plan or if it is ready for implementation
+- When creating plans:
+  - write the plan out to `PLANNING.md`
+  - always create a to-do list for implementation tasks and write it to `TODO.md`
+- As you work, mark completed tasks in `TODO.md`. Add discovered sub-tasks under "Discovered During Work".
+- `TODO.md` and `PLANNING.md` files are gitignored and branch specific
 
 ### Git & Version Control
 
 - **Before touching any files, run `git worktree list` and `git branch --show-current`.**
-  - If on `main`/`master`: stop, warn the user. Edits should never be made directly on main without explicit permission.
+  - If not in a git directory, ignore the error and continue.
+  - If on `main`/`master`: stop and create a dedicated worktree for the task before continuing. Edits should never be made directly on main unless told to do so explicitly.
   - If the current worktree/branch does not match the task: stop, warn the user, and ask
     before proceeding. Edits should always be made on a worktree that correlates to the task at hand.
-  - Do not make any edits until the correct worktree is confirmed.
   - Worktrees should live in a `.worktrees/` directory at the repo root. _This directory should be gitignored._
 - **Only** push to remote **when explicitly told.**
 - **Before committing**, always check for unstaged changes on the branch with `git status` and `git diff`. Ask the user if pre-existing changes should be included. Never squash-merge with origin/main changes accidentally.
