@@ -24,6 +24,20 @@
 - NEVER add `Co-Authored-By: Claude` or similar attributions.
 - Use Conventional Commits for commit messages and PR titles.
 
+#### Squashing Commits
+
+When squashing a branch into a single commit, always rebase first:
+
+```bash
+git fetch origin main
+git rebase origin/main                    # 1. Replay commits on top of current main
+MERGE_BASE=$(git merge-base origin/main HEAD)
+git reset --soft $MERGE_BASE              # 2. Collapse into staged changes
+git commit -m "..."                       # 3. Single commit with only branch changes
+```
+
+**Never `git reset --soft origin/main` without rebasing first** — if main has advanced, the staged diff will include unrelated changes from main, not just branch changes.
+
 #### Pull Requests
 
 When asked to submit a PR:
