@@ -1,5 +1,5 @@
 ---
-name: ops
+name: queue
 description: Use when user asks to work a task, create a task, view the backlog, or manage a file-based task queue. Triggers on "work task", "next task", "create task", "show queue", "list tasks", "backlog".
 ---
 
