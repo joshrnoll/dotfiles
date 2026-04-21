@@ -31,7 +31,7 @@ This framework is:
 
 ## Available skills
 
-1. `understand` — investigate and clarify the problem space
+1. `understand` — investigate and clarify the problem space conversationally
 2. `brainstorm` — discuss options and tradeoffs conversationally
 3. `define` — articulate the desired outcome and high-level plan
 4. `impl-plan` — write a detailed, execution-ready checklist
@@ -39,16 +39,17 @@ This framework is:
 
 ## Artifact layout
 
-Artifacts live under:
+Artifacts used by the planning and review stages live under:
 
 ```text
 workflow/<topic>/
-  PROBLEM.md
   PLANNING.md
   TASKS.md
   plan/REVIEW.md
   code/REVIEW.md
 ```
+
+The `understand` skill is conversational and does not create a required artifact.
 
 ## Topic naming
 
@@ -62,7 +63,7 @@ When an invoked skill needs an artifact and no topic exists yet:
 The framework never advances automatically.
 
 At the end of a skill:
-- suggest the most logical next skill
+- suggest the most logical next skill only when the user has demonstrated understanding or explicitly wants to move on
 - wait for approval
 - if approved, invoke the next skill
 - if not approved, stop or follow the user's direction
