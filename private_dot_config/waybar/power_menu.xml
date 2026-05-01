@@ -3,25 +3,127 @@
     <object class="GtkMenu" id="menu">
         <child>
             <object class="GtkMenuItem" id="suspend">
-                <property name="label">Suspend</property>
+                <child>
+                    <object class="GtkBox">
+                        <property name="orientation">horizontal</property>
+                        <property name="spacing">12</property>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">Suspend</property>
+                                <property name="xalign">0</property>
+                            </object>
+                            <packing>
+                                <property name="expand">true</property>
+                                <property name="fill">true</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">󰤄</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
             </object>
         </child>
         <child>
             <object class="GtkMenuItem" id="hibernate">
-                <property name="label">Hibernate</property>
+                <child>
+                    <object class="GtkBox">
+                        <property name="orientation">horizontal</property>
+                        <property name="spacing">12</property>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">Hibernate</property>
+                                <property name="xalign">0</property>
+                            </object>
+                            <packing>
+                                <property name="expand">true</property>
+                                <property name="fill">true</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">󰒲</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
             </object>
         </child>
         <child>
             <object class="GtkMenuItem" id="shutdown">
-                <property name="label">Shutdown</property>
+                <child>
+                    <object class="GtkBox">
+                        <property name="orientation">horizontal</property>
+                        <property name="spacing">12</property>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">Shutdown</property>
+                                <property name="xalign">0</property>
+                            </object>
+                            <packing>
+                                <property name="expand">true</property>
+                                <property name="fill">true</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">⏻</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
             </object>
         </child>
         <child>
-            <object class="GtkSeparatorMenuItem" id="delimiter1" />
+            <object class="GtkMenuItem" id="reboot">
+                <child>
+                    <object class="GtkBox">
+                        <property name="orientation">horizontal</property>
+                        <property name="spacing">12</property>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">Reboot</property>
+                                <property name="xalign">0</property>
+                            </object>
+                            <packing>
+                                <property name="expand">true</property>
+                                <property name="fill">true</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label"></property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+            </object>
         </child>
         <child>
-            <object class="GtkMenuItem" id="reboot">
-                <property name="label">Reboot</property>
+            <object class="GtkMenuItem" id="logout">
+                <child>
+                    <object class="GtkBox">
+                        <property name="orientation">horizontal</property>
+                        <property name="spacing">12</property>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">Logout</property>
+                                <property name="xalign">0</property>
+                            </object>
+                            <packing>
+                                <property name="expand">true</property>
+                                <property name="fill">true</property>
+                            </packing>
+                        </child>
+                        <child>
+                            <object class="GtkLabel">
+                                <property name="label">󰍃</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
             </object>
         </child>
     </object>

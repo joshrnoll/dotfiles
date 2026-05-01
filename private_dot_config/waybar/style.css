@@ -11,99 +11,110 @@
 
 /* --- Global bar --- */
 * {
-    font-family: "JetBrainsMono Nerd Font", monospace;
-    font-size: 13px;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
 }
 
 window#waybar {
-    background: @bg;
-    opacity: 0.85;
-    color: @fg;
-    /* border-bottom: 1px solid @blue; */
+  background: @bg;
+  /* opacity: 0.85; */
+  color: @fg;
+  /* border-bottom: 1px solid @blue; */
 }
 
 /* Each module container */
-#network, #wireplumber, #cpu, #memory, #temperature, #battery, #tray, #backlight, #bluetooth, #custom-power, #custom-notifications, #keyboard-state{
-    padding-right: 12px;
-    padding-left: 8px;
-    /* margin: 5px; */
-    border: 0.5px solid @fg;
-    border-radius: 8px;
+#network,
+#wireplumber,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#tray,
+#backlight,
+#bluetooth,
+#custom-power,
+#custom-notifications,
+#keyboard-state {
+  padding-right: 12px;
+  padding-left: 8px;
+  /* margin: 5px; */
+  /* border: 0.5px solid @fg; */
+  /* border-radius: 8px; */
 }
 
 /* --- Workspaces --- */
 #workspaces button {
-    padding: 1px 12px;
-    color: @fg;
-    background: transparent;
-    border-radius: 12px;
+  padding: 1px 12px;
+  color: @fg;
+  background: transparent;
+  border-radius: 12px;
 }
 
 #workspaces button:hover {
-    background: @blue;
-    color: @bg;
+  background: @blue;
+  color: @bg;
 }
 
 #workspaces button.active {
-    background: @blue;
-    color: @bg;
-    font-weight: bold;
+  background: @blue;
+  color: @bg;
+  font-weight: bold;
 }
 
 /* --- Clock --- */
 #clock {
-    color: @blue;
+  color: @blue;
 }
 
 /* --- Network --- */
 #network {
-    color: @teal;
+  color: @teal;
 }
 #network.disconnected {
-    color: @red;
+  color: @red;
 }
 
 /* --- Audio --- */
 #wireplumber {
-    color: @purple;
+  color: @purple;
 }
 #wireplumber.muted {
-    color: @red;
+  color: @red;
 }
 
 /* --- CPU / Memory / Temp --- */
 #cpu {
-    color: @orange;
+  color: @orange;
 }
 
 #memory {
-    color: @yellow;
+  color: @yellow;
 }
 
 #temperature {
-    color: @teal;
+  color: @teal;
 }
 #temperature.critical {
-    color: @red;
+  color: @red;
 }
 
 /* --- Battery --- */
 #battery {
-    color: @teal;
+  color: @teal;
 }
 #battery.charging {
-    color: @purple;
+  color: @purple;
 }
 #battery.warning:not(.charging) {
-    color: @yellow;
+  color: @yellow;
 }
 #battery.critical:not(.charging) {
-    color: @red;
+  color: @red;
 }
 
 /* --- System Tray --- */
 #tray {
-    padding: 4px 6px;
+  padding: 4px 6px;
 }
 
 /* #keyboard-state label, #keyboard-state label.locked { */
@@ -112,18 +123,27 @@ window#waybar {
 
 /* --- Custom modules --- */
 #custom-powermenu {
-    color: @red;
+  color: @red;
 }
 
 #custom-media {
-    color: @purple;
+  color: @purple;
 }
 
 menu {
-    border-radius: 15px;
-    background: @bg;
-    color: @blue;
+  padding: 6px;
+  border: 1px solid @blue;
+  border-radius: 12px;
+  background-color: @bg;
+  color: @blue;
 }
+
 menuitem {
-    border-radius: 15px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background-color: @bg;
+}
+
+menuitem:hover {
+  background-color: @bg-alt;
 }
