@@ -1,18 +1,10 @@
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
-fi
-
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
   PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
 
-# Add homebrew to path (linux)
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-# Set nvim as deafult editor
+# Set nvim as default editor
 if command -v nvim &>/dev/null; then
   export EDITOR='nvim'
   export VISUAL='nvim'
@@ -21,14 +13,9 @@ else
   export VISUAL='vi'
 fi
 
-# Starship prompt:
-if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
-  if command -v starship >/dev/null 2>&1; then
-    eval "$(starship init bash)"
-  else
-    echo "Starship not installed. Attempting to install with homebrew..."
-    brew install starship && eval "$(starship init bash)"
-  fi
+# Starship prompt
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
 fi
 
 # Yazi binding
@@ -44,13 +31,11 @@ fi
 
 # Goose terminal integration https://block.github.io/goose/docs/guides/terminal-integration/
 if command -v goose >/dev/null 2>&1; then
-  eval "$(goose term init bash)"
+  eval "$(goose term init zsh)"
 fi
 
 # Git completion
-if [ -f ~/.config/shell/shared/.git-completion.sh ]; then
-  source ~/.config/shell/shared/.git-completion.sh
-fi
+autoload -Uz compinit && compinit
 
 # Environment variables
 PATH=$PATH:~/.scripts
@@ -68,6 +53,12 @@ alias gl="git log --oneline --no-decorate"
 
 # k8s aliases
 [ -f ~/.config/shell/shared/.kubectl_aliases ] && source ~/.config/shell/shared/.kubectl_aliases
+
+# utic aliases
+[ -f $HOME/.config/shell/utic/aliases.sh ] && source $HOME/.config/shell/utic/aliases.sh
+
+# fzf keybindings
+source $(brew --prefix)/opt/fzf/shell/key-bindings.zsh
 
 # Motivation from mando
 cat <<"EOF"
